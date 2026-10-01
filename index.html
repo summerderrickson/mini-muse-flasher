@@ -45,9 +45,7 @@ Sticky. It works in <strong>Chrome</strong> or <strong>Edge</strong> on a comput
 <ol>
   <li>Use a <strong>USB-C data cable</strong> (some cheap cables only charge, those will not work).</li>
   <li>Plug the Sticky into your computer with the cable.</li>
-  <li>This page must be served over <code>http://localhost</code>, not opened as a file.
-      In a terminal, in this folder, run <code>python3 -m http.server 8000</code>
-      and open <code>http://localhost:8000</code>.</li>
+  <li>Nothing to install. This page is already hosted online, so just click the button below.</li>
 </ol>
 
 <div class="card">
@@ -75,10 +73,11 @@ Sticky. It works in <strong>Chrome</strong> or <strong>Edge</strong> on a comput
   (like the Arduino IDE serial monitor) is using the port.
 </div>
 
-<p class="sub" style="font-size:0.85rem">
-  Prefer the command line? See <code>FLASHING.md</code> in this folder for the
-  <code>esptool.py</code> alternative.
-</p>
+<div class="note">
+  <strong>Install failed?</strong> Unplug the Sticky, plug it back in, reload this page,
+  and try again. There is no boot button on the Sticky. The flasher reboots it into
+  flash mode automatically over USB.
+</div>
 
 </body>
 </html>

@@ -1,0 +1,1 @@
+{"builds":[{"chipFamily":"ESP32-S3","parts":[{"offset":0,"path":"bootloader.bin"},{"offset":32768,"path":"partitions.bin"},{"offset":57344,"path":"boot_app0.bin"},{"offset":65536,"path":"mini-muse.bin"}]}],"name":"Mini Muse","new_install_prompt_erase":true,"version":"1.0.0"}

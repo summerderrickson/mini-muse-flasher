@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Muse Flasher</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 640px; margin: 0 auto; padding: 32px 20px; line-height: 1.55;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 0.2rem; }
+  .sub { color: #666; margin-top: 0; }
+  ol li { margin-bottom: 0.6rem; }
+  .card {
+    border: 1px solid #ccc; border-radius: 12px; padding: 20px;
+    margin: 24px 0; text-align: center;
+  }
+  .note {
+    background: #f6f6f6; border-radius: 8px; padding: 12px 16px;
+    font-size: 0.92rem; margin: 16px 0;
+  }
+  @media (prefers-color-scheme: dark) {
+    .note { background: #222; }
+    .card { border-color: #555; }
+    .sub { color: #aaa; }
+  }
+  code { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+  @media (prefers-color-scheme: dark) { code { background: #333; } }
+  esp-web-install-button { --esp-tools-button-color: #4a7c59; }
+</style>
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+
+<h1>Mini Muse Flasher</h1>
+<p class="sub">One click firmware installer for the reTerminal Sticky</p>
+
+<p>This page flashes the Mini Muse firmware onto your Seeed Studio reTerminal
+Sticky. It works in <strong>Chrome</strong> or <strong>Edge</strong> on a computer
+(Safari and Firefox cannot talk to USB devices, so they will not work here).</p>
+
+<h2>Before you start</h2>
+<ol>
+  <li>Use a <strong>USB-C data cable</strong> (some cheap cables only charge, those will not work).</li>
+  <li>Plug the Sticky into your computer with the cable.</li>
+  <li>This page must be served over <code>http://localhost</code>, not opened as a file.
+      In a terminal, in this folder, run <code>python3 -m http.server 8000</code>
+      and open <code>http://localhost:8000</code>.</li>
+</ol>
+
+<div class="card">
+  <esp-web-install-button manifest="manifest.json">
+    <button slot="activate">Connect and flash Mini Muse</button>
+  </esp-web-install-button>
+  <p class="sub" style="font-size:0.9rem">Pick the Sticky's USB serial port when asked, then press Install.</p>
+</div>
+
+<h2>After flashing</h2>
+<ol>
+  <li>The Sticky restarts to the Mini Muse home screen.</li>
+  <li><strong>Hold UP + DOWN together</strong> to open the WiFi setup portal.
+      A <code>MiniMuse-XXXX</code> network appears. Join it from your phone.</li>
+  <li>Enter your WiFi name and password, your <strong>Groq API key</strong>
+      (free at groq.com, used for voice transcription), and a
+      <strong>device name</strong> like <code>sticky-home</code> or
+      <code>sticky-car</code> so replies route to the right unit.</li>
+  <li>The Sticky connects, syncs its clock, and you are done. Repeat on the second Sticky with the other device name.</li>
+</ol>
+
+<div class="note">
+  <strong>Port not showing up?</strong> Try a different USB-C cable first (this fixes it
+  almost every time). Then try another USB port, and make sure no other program
+  (like the Arduino IDE serial monitor) is using the port.
+</div>
+
+<p class="sub" style="font-size:0.85rem">
+  Prefer the command line? See <code>FLASHING.md</code> in this folder for the
+  <code>esptool.py</code> alternative.
+</p>
+
+</body>
+</html>
